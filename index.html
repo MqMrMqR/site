@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h2>hello world</h2> 
+
+  <div class="image-slot" id="E"> 
+    <img src="" class="image" id="uploaded-image">  
+  </div>
+   
+  <input type="file" id="file-input" class="image" style="display: block; position:  static;">  
+  <button onclick="uploadImage()" style="display: block; position: static;">Upload Image</button>    
+
+  <script>
+    function uploadImage() {
+      var input = document.getElementById('file-input');
+      var file = input.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        var image = document.getElementById('uploaded-image');
+        image.src = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>
